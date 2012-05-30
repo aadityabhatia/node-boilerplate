@@ -11,6 +11,7 @@
   ],
   "description": "production-ready node skeleton",
   "dependencies": {
+    "socket.io": "~0.9",
     "jade": "~0.25",
     "connect-assets": "~2.1",
     "coffee-script": "~1.3",

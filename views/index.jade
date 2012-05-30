@@ -2,9 +2,16 @@ html
 	head
 		title Node Boilerplate
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
+		script(src="/socket.io/socket.io.js")
 		!= js('client')
 		!= css('global')
 
 	body
 		h1 Welcome to the Node Boilerplate
 		#output
+		h2 Chat
+		input#txtMessage(placeholder='Message')
+		button#btnSend Send
+		h3 Received messages:
+		#messages
+
