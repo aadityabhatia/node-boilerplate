@@ -1,4 +1,4 @@
-.project
 node_modules
-npm-debug.log
-builtAssets
+*.log
+public/*.css
+

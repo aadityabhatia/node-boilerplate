@@ -1,10 +1,13 @@
 html
 	head
 		title Node Boilerplate
+
+		link(href='/global.css?#{version}', rel='stylesheet', type='text/css')
+
+		script window.global = {version: "#{version}", debug: !{devMode}}
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js")
 		script(src="/socket.io/socket.io.js")
-		!= js('client')
-		!= css('global')
+		script(src="/app.js?#{version}")
 
 	body
 		h1 Welcome to the Node Boilerplate
