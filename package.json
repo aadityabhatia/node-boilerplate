@@ -12,8 +12,8 @@
   "description": "production-ready node skeleton",
   "dependencies": {
     "colors": "~0.6",
-    "gitsha": "0.0.1",
-    "gitpull": "https://github.com/aadityabhatia/gitpull/tarball/master",
+    "gitsha": "~0.0",
+    "git-pull": "~0.1",
     "socket.io": "~0.9",
     "express": "~2.5",
     "browserify": "~1.16",
