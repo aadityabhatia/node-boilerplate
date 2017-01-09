@@ -1,34 +1,30 @@
 {
   "name": "node-boilerplate",
-  "subdomain": "node-boilerplate",
   "scripts": {
     "start": "coffee app.coffee"
   },
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Aaditya Bhatia <aadityabhatia@gmail.com>",
-  "contributors": [
-    "Aaditya Bhatia <aadityabhatia@gmail.com>"
-  ],
   "description": "production-ready node skeleton",
   "dependencies": {
-    "express": "~4.3",
-    "browserify": "~4.1",
-    "browserify-middleware": "~3.x",
-    "jade": "~1.x",
-    "stylus": "~0.x",
-    "coffeeify": "~0.6",
-    "serve-favicon": "~2.x",
-    "morgan": "~1.x",
-    "gitsha": "~0.x",
-    "colors": "~0.x",
-    "socket.io": "~0.9"
+      "browserify-middleware": "^7.1",
+      "coffeeify": "^2.1",
+      "colors": "^1.1",
+      "express": "^4.14",
+      "gitsha": "^0.1",
+      "morgan": "^1.7",
+      "pug": ">= 2.0.0-beta6",
+      "serve-favicon": "^2.3",
+      "socket.io": "^1.7",
+      "stylus": "^0.54"
   },
   "engines": {
-    "node": "v0.10.x"
+    "node": ">=7"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:aadityabhatia/node-boilerplate.git"
   },
+  "license": "Apache-2.0",
   "main": "app.coffee"
 }

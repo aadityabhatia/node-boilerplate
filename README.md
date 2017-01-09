@@ -3,7 +3,6 @@
 a basic node skeleton with:
 
   * express
-  * jade
+  * pug
   * coffee-script
   * stylus
-
