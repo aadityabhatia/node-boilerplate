@@ -1,4 +1,4 @@
-process.env.NODE_ENV ?= 'dev'
+process.env.NODE_ENV ?= 'development'
 debug = process.env.NODE_ENV isnt 'production'
 
 express = require 'express'
@@ -15,22 +15,26 @@ gitsha __dirname, (error, output) ->
 	version = output
 	console.log "[#{process.pid}] env: #{process.env.NODE_ENV.magenta}, version: #{output.magenta}"
 
-bundle = browserify './client/index.coffee',
-	mode: if debug then 'development' else 'production'
+app = express()
+
+app.use favicon __dirname + '/public/favicon.ico'
+
+app.use morgan(if debug then 'dev' else 'short')
+
+app.use '/client.js', browserify './client/client.coffee',
+	debug: debug
 	transform: 'coffeeify'
 
-app = express()
-app.use favicon __dirname + '/public/favicon.ico'
-app.use morgan(if debug then 'dev' else 'tiny')
-app.use '/app.js', bundle
 app.use stylus.middleware
 	src: __dirname + '/views'
-	dest: __dirname + '/cache'
-app.use express.static __dirname + '/cache'
-app.use express.static __dirname + '/public'
+	dest: __dirname + '/public'
 
-if debug
-	app.locals.pretty = true
+app.use express.static __dirname + '/public',
+	immutable: !debug
+	maxAge: if debug then 0 else '1d'
+
+app.set 'trust proxy', 'loopback'
+app.locals.pretty = debug
 
 app.get '/', (req, res) ->
 	res.render 'index.pug',
