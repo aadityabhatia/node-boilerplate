@@ -7,10 +7,7 @@ html
 		link(href='/global.css?' + version, rel='stylesheet', type='text/css')
 
 		script window.global = {version: "#{version}", debug: !{devMode}}
-		if devMode
-			script(src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js")
-		else
-			script(src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+		script(src="//code.jquery.com/jquery-3.4.0.min.js")
 		script(src="/socket.io/socket.io.js")
 		script(src='/app.js?' + version)
 
