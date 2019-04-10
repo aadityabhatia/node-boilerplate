@@ -52,4 +52,14 @@ io.on 'connection', (socket) ->
 		console.log 'broadcastMessage:', message
 		io.sockets.emit 'messageReceived', message
 
+process.on 'SIGINT', (signal) ->
+	console.log "[#{process.pid}] Caught signal: #{signal}; closing server connections."
+	server.close process.exit
+	io.close()
+
+process.on 'SIGTERM', (signal) ->
+	console.log "[#{process.pid}] Caught signal: #{signal}; closing server connections."
+	server.close process.exit
+	io.close()
+
 module.exports = app
